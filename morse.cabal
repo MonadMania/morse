@@ -1,0 +1,43 @@
+-- I ran "stack new morse" to make a "Simple" project. This adds the basic infrastructure for testing and building
+-- Copy this template for Simple projects with library code, an executable, and a test suite
+-- The problem-solving code is not the point of this project - the project structure is what matters.
+
+name:           morse
+version:        0.1.0.0
+author:         MonadMania
+maintainer:     monadmania@gmail.com
+license-file:   LICENSE
+category:       Text
+build-type:     Simple
+cabal-version:  >= 1.10
+
+library
+  exposed-modules:      Morse
+  ghc-options:          -Wall -fwarn-tabs
+  hs-source-dirs:       src
+  build-depends:        base >=4.7 && <5
+                      , containers, QuickCheck
+  default-language:     Haskell2010
+
+executable morse
+  main-is:              Main.hs
+  hs-source-dirs:       src
+  ghc-options:          -Wall -fwarn-tabs
+  build-depends:        base >=4.7 && <5
+                      , morse, containers, QuickCheck
+  default-language:     Haskell2010
+  other-modules:        Morse
+
+test-suite tests
+  type: exitcode-stdio-1.0
+  main-is:              tests.hs
+  hs-source-dirs:       tests
+  ghc-options:          -Wall -fno-warn-orphans
+  build-depends:        base >=4.7 && <5
+                      , morse, containers, morse, QuickCheck
+  default-language:     Haskell2010
+
+
+
+
+
